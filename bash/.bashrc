@@ -25,6 +25,7 @@ alias wget='wget -c'
 alias mutt='cd ~/downloads && mutt'
 #alias mutt="torify mutt 2>/dev/null"
 alias whatismyip='curl https://ip.anysrc.net'
+alias workvpn='sudo openvpn /etc/openvpn/client/rdu.conf'
 alias workvm='ssh sebastianjug@10.12.23.173'
 alias backuphome='rsync -aAX --info=progress2 --exclude={".android",".apm",".atom",".cache",".config/chromium-backup",".eclipse",".gem",".gimp-2.8",".m2",".node-gyp",".npm",".thumbnails",".tor-browser-en",".weechat/logs"} ~ /mnt/usb/'
 
