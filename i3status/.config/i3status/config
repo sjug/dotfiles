@@ -8,9 +8,10 @@
 
 general {
         colors = true
-        color_good = "#13EF0B"
-        color_bad = "#EF0B13"
-        color_degraded = "#0B13EF"
+        color_good = "#9EC400"
+        color_bad = "#FF3334"
+        color_degraded = "#81A2BE"
+	#color_separator = "#000000"
         interval = 5
 }
 

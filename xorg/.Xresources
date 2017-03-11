@@ -1,3 +1,4 @@
+! vim: ft=xdefaults
 Xft.dpi: 144
 Xft.autohint: 0
 Xft.antialias: true
@@ -6,35 +7,104 @@ Xft.hinting: 1
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
-! Jellybeans Terminal Colours
+!! Jellybeans Terminal Colours
+!*background: #151515
+!*foreground: #888888
+!! black
+!*color0: #1C1C1C
+!*color8: #404040
+!! red
+!*color1: #B85335
+!*color9: #CF6A4C
+!! green
+!*color2: #799D6A
+!*color10: #99AD6A
+!! yellow
+!*color3: #FFB964
+!*color11: #FAD07A
+!! blue
+!*color4: #667899
+!*color12: #8197BF
+!! magenta
+!*color5: #8787AF
+!*color13: #C6B6EE
+!! cyan
+!*color6: #668799
+!*color14: #8FBFDC
+!! white
+!*color7: #888888
+!*color15: #E8E8D3
 
-! vim: ft=xdefaults
-*background: #151515
-*foreground: #888888
-! black
-*color0: #1C1C1C
-*color8: #404040
-! red
-*color1: #B85335
-*color9: #CF6A4C
-! green
-*color2: #799D6A
-*color10: #99AD6A
-! yellow
-*color3: #FFB964
-*color11: #FAD07A
-! blue
-*color4: #667899
-*color12: #8197BF
-! magenta
-*color5: #8787AF
-*color13: #C6B6EE
-! cyan
-*color6: #668799
-*color14: #8FBFDC
-! white
-*color7: #888888
-*color15: #E8E8D3
+!! Dracula Xresources palette
+!*.foreground: #F8F8F2
+!*.background: #282A36
+!*.color0:     #000000
+!*.color8:     #4D4D4D
+!*.color1:     #FF5555
+!*.color9:     #FF6E67
+!*.color2:     #50FA7B
+!*.color10:    #5AF78E
+!*.color3:     #F1FA8C
+!*.color11:    #F4F99D
+!*.color4:     #CAA9FA
+!*.color12:    #CAA9FA
+!*.color5:     #FF79C6
+!*.color13:    #FF92D0
+!*.color6:     #8BE9FD
+!*.color14:    #9AEDFE
+!*.color7:     #BFBFBF
+!*.color15:    #E6E6E6
+
+!TomorrowNight
+#define t_background        #1d1f21
+#define t_current_line      #282a2e
+#define t_selection      	#373b41
+#define t_foreground      	#c5c8c6
+#define t_comment	     	#969896
+#define t_red		     	#cc6666
+#define t_orange	     	#de935f
+#define t_yellow        	#f0c674
+#define t_green	        	#b5bd68
+#define t_aqua	        	#8abeb7
+#define t_blue	        	#81a2be
+#define t_purple        	#b294bb
+
+
+*.foreground:   t_foreground
+*.background:   t_background
+*.cursorColor:  #aeafad
+
+! Black / Grey
+*.color0:       #000000
+*.color8:       #666666
+
+! Red / Bright Red
+*.color1:       t_red
+*.color9:       #FF3334
+
+! Green + Bright Green
+*.color2:       t_green
+*.color10:      #9ec400
+
+! Yellow (Orange) + Bright Yellow (Yellow)
+*.color3:       t_orange
+*.color11:      t_yellow
+
+! Blue + Bright Blue
+*.color4:       t_blue
+*.color12:      t_blue
+
+! Magenta (Purple) + Bright Magenta
+*.color5:       t_purple
+*.color13:      #b777e0
+
+! Cyan (Aqua) + Bright Cyan
+*.color6:       t_aqua
+*.color14:      #54ced6
+
+! Light Grey (Selection) + White (Current Line)
+*.color7:       t_selection
+*.color15:      t_current_line
 
 !urxvt settings
 URxvt.letterSpace: -2

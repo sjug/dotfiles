@@ -15,6 +15,7 @@ PS1='[\u@\h \W]\$ '
 # User specific aliases and functions
 set -o vi
 
+alias c='clear'
 alias ls='ls -hF --color=auto'
 alias ll='ls -l'
 alias la='ll -A'
