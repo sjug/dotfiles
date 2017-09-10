@@ -23,7 +23,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim'
 alias wget='wget -c'
-alias mutt='cd ~/downloads && mutt'
+alias mutt='cd ~/Downloads && mutt'
 #alias mutt="torify mutt 2>/dev/null"
 alias whatismyip='curl https://ip.anysrc.net'
 alias workvpn='sudo openvpn /etc/openvpn/client/rdu.conf'
@@ -31,7 +31,7 @@ alias workvm='ssh sebastianjug@10.12.23.173'
 alias backuphome='rsync -aAX --info=progress2 --exclude={".android",".apm",".atom",".cache",".config/chromium-backup",".eclipse",".gem",".gimp-2.8",".m2",".node-gyp",".npm",".thumbnails",".tor-browser-en",".weechat/logs"} ~ /mnt/usb/'
 
 #export TERM=xterm-256color
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export SYSTEMD_EDITOR="$VISUAL"
 export LESSHISTFILE=/dev/null
@@ -53,6 +53,9 @@ fi
 
 # Set GPG TTY
 export GPG_TTY=$(tty)
+
+# Set VDPAU driver
+#export VDPAU_DRIVER=radeonsi
 
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
