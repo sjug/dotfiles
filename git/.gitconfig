@@ -1,0 +1,11 @@
+[user]
+	name = Sebastian Jug
+	email = seb@stianj.ug
+[diff]
+	tool = vimdiff
+[push]
+	default = simple
+[url "https://aur.archlinux.org/"]
+	insteadOf = "aur:"
+[url "ssh+git://aur@aur.archlinux.org/"]
+	pushInsteadOf = "aur:"
