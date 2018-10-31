@@ -19,6 +19,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'hashivim/vim-hashicorp-tools'
 Plug 'scrooloose/nerdtree'
 Plug 't9md/vim-choosewin'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -67,6 +68,10 @@ if has('persistent_undo')
   set undodir=~/.config/nvim/tmp/undo//
 endif
 
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 let g:rehash256 = 1
 set background=dark
 let g:molokai_original = 1
@@ -74,6 +79,7 @@ colorscheme molokai
 
 " open help vertically
 command! -nargs=* -complete=help Help vertical belowright help <args>
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType help wincmd L
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
@@ -222,6 +228,8 @@ let g:go_autodetect_gopath = 1
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 0
 let g:go_echo_command_info= 0
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
