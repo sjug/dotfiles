@@ -22,6 +22,7 @@ alias la='ll -A'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim'
+alias vim='nvim'
 alias wget='wget -c'
 alias mutt='cd ~/Downloads && mutt'
 #alias mutt="torify mutt 2>/dev/null"
@@ -48,14 +49,9 @@ fi
 # Set SSH to use gpg-agent
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
 # Set GPG TTY
 export GPG_TTY=$(tty)
-
-# Set VDPAU driver
-#export VDPAU_DRIVER=radeonsi
-
-# Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
