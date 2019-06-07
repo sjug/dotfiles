@@ -15,6 +15,7 @@ PS1='[\u@\h \W]\$ '
 # User specific aliases and functions
 set -o vi
 
+alias sudo='sudo '
 alias c='clear'
 alias ls='ls -hF --color=auto'
 alias ll='ls -l'
@@ -22,6 +23,7 @@ alias la='ll -A'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim'
+alias vim='nvim'
 alias wget='wget -c'
 alias mutt='cd ~/Downloads && mutt'
 #alias mutt="torify mutt 2>/dev/null"
@@ -40,22 +42,22 @@ export LESSHISTFILE=/dev/null
 cla() { cd "$1"; la;}
 mcd() { mkdir -p "$1"; cd "$1";} 
 
-# Start the gpg-agent if not already running
-if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-  gpg-connect-agent /bye >/dev/null 2>&1
-fi
-
 # Set SSH to use gpg-agent
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
 # Set GPG TTY
 export GPG_TTY=$(tty)
 
-# Set VDPAU driver
-#export VDPAU_DRIVER=radeonsi
-
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
+
+[ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash 
+[ -f /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_TMUX=1
+bind -x '"\C-p": vim $(fzf);'
+
