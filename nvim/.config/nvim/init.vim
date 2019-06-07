@@ -12,7 +12,6 @@ Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'fatih/vim-go'
 Plug 'fatih/vim-hclfmt'
 Plug 'fatih/vim-nginx' , {'for' : 'nginx'}
-Plug 'fatih/badwolf'
 Plug 'w0ng/vim-hybrid'
 Plug 'tomasr/molokai'
 Plug 'chriskempson/base16-vim'
