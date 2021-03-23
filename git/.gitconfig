@@ -1,6 +1,7 @@
 [user]
 	name = Sebastian Jug
 	email = seb@stianj.ug
+	signingKey = 869F7575A6EC9054
 [diff]
 	tool = vimdiff
 [push]
@@ -9,3 +10,5 @@
 	insteadOf = "aur:"
 [url "ssh+git://aur@aur.archlinux.org/"]
 	pushInsteadOf = "aur:"
+[pull]
+	rebase = false
