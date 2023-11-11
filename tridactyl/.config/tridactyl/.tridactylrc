@@ -164,6 +164,7 @@
 " 
 " " New reddit is bad
 autocmd DocStart ^http(s?)://www.reddit.com js tri.excmds.urlmodify("-t", "www", "old")
+autocmd DocStart ^http(s?)://imgur.com js tri.excmds.urlmodify("-t", "imgur.com", "imgin.voidnet.tech")
 " 
 " " Isolate Facebook in its own container
 " " set auconcreatecontainer true
@@ -173,11 +174,3 @@ autocmd DocStart ^http(s?)://www.reddit.com js tri.excmds.urlmodify("-t", "www",
 " " vim: set filetype=tridactyl
 "
 " " Test adding redirect listener
-jsb browser.webRequest.onBeforeRequest.addListener( \
-    details => { \
-        let url = new URL(details.url);\
-        url.hostname = "imgin.voidnet.tech"; \
-        return { redirectUrl: url + "" }; \
-    }, \
-    {urls:["https://imgur.com/*"], types:["main_frame"]}, ["blocking"] \
-);
