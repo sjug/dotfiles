@@ -171,3 +171,13 @@ autocmd DocStart ^http(s?)://www.reddit.com js tri.excmds.urlmodify("-t", "www",
 " 
 " " For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
 " " vim: set filetype=tridactyl
+"
+" " Test adding redirect listener
+jsb browser.webRequest.onBeforeRequest.addListener( \
+    details => { \
+        let url = new URL(details.url);\
+        url.hostname = "imgin.voidnet.tech"; \
+        return { redirectUrl: url + "" }; \
+    }, \
+    {urls:["https://imgur.com/*"], types:["main_frame"]}, ["blocking"] \
+);
