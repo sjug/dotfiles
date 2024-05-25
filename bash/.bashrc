@@ -17,9 +17,10 @@ set -o vi
 
 alias sudo='sudo '
 alias c='clear'
-alias ls='ls -hF --color=auto'
+alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ll -A'
+alias lr='la -tr'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim'
@@ -27,12 +28,13 @@ alias vim='nvim'
 alias wget='wget -c'
 alias mutt='cd ~/Downloads && mutt'
 #alias mutt="torify mutt 2>/dev/null"
-alias whatismyip='curl https://ip.anysrc.net'
+alias whatismyip='curl -s ifconfig.co/json | jq'
 alias workvpn='sudo openvpn /etc/openvpn/client/rdu.conf'
 alias workvm='ssh sebastianjug@10.12.23.173'
 alias backuphome='rsync -aAX --info=progress2 --exclude={".android",".apm",".atom",".cache",".config/chromium-backup",".eclipse",".gem",".gimp-2.8",".m2",".node-gyp",".npm",".thumbnails",".tor-browser-en",".weechat/logs"} ~ /mnt/usb/'
+alias yt-dlp-subs='yt-dlp --embed-subs --write-auto-subs'
 
-#export TERM=xterm-256color
+export TERM=xterm-256color
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export SYSTEMD_EDITOR="$VISUAL"
@@ -56,8 +58,12 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 [ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash 
 [ -f /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_TMUX=1
 bind -x '"\C-p": vim $(fzf);'
+
+single-line() {
+  awk '{printf "%s ", $0} END {print ""}' "$1"
+}
 
